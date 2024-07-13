@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 24px;
+        }
+        header nav {
+            display: flex;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px 10px;
+        }
+        header nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            display: none;
+        }
+        .main-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My Logo</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#link1" onclick="showContent('link1')">Link 1</a></li>
+                <li><a href="#link2" onclick="showContent('link2')">Link 2</a></li>
+                <li><a href="#link3" onclick="showContent('link3')">Link 3</a></li>
+                <li><a href="#link4" onclick="showContent('link4')">Link 4</a></li>
+            </ul>
+        </aside>
+        <main class="main-content" id="link1">
+            <h1>Main Content Area</h1>
+            <p>Blockchain is a leading technology in today’s era that can lead to innovative changes in the real world environment such as in the business sector, financial sector, and in the technological world. A Blockchain is a distributed ledger technology that is completely based on a decentralized system that is shared among the nodes of a computer network which is completely open to everyone.</p>
+        </main>
+        <main class="main-content" id="link2">
+            <h1>Link 2 Content Area</h1>
+            <p>This is the content area for Link 2. You can add your own text and images here.</p>
+        </main>
+        <main class="main-content" id="link3">
+            <h1>Link 3 Content Area</h1>
+            <p>This is the content area for Link 3. You can add your own text and images here.</p>
+        </main>
+        <main class="main-content" id="link4">
+            <h1>Link 4 Content Area</h1>
+            <p>This is the content area for Link 4. You can add your own text and images here.</p>
+        </main>
+    </div>
+    <script>
+        function showContent(id) {
+            const contents = document.querySelectorAll('.main-content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('link1'); // Show the first content by default
+        });
+    </script>
+</body>
+</html>
